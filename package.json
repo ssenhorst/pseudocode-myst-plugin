@@ -1,5 +1,5 @@
 {
-  "name": "example-js-plugin",
+  "name": "pseudocode-myst-plugin",
   "version": "1.0.0",
   "main": "dist/plugin.mjs",
   "author": "",
@@ -10,9 +10,10 @@
     "esbuild": "0.25.4"
   },
   "scripts": {
-    "build": "esbuild plugin.mjs --bundle --outfile=dist/plugin.mjs --format=esm"
+    "build": "esbuild plugin.mjs --bundle --outfile=dist/plugin.mjs --format=esm --platform=node --external:pseudocode"
   },
   "dependencies": {
+    "pseudocode": "^2.4.1",
     "unist-util-visit": "^4.1.2"
   }
 }
