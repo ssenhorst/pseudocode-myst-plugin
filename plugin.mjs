@@ -291,7 +291,6 @@ const pseudocodeTransform = {
         file.data.pseudocodeCounter = 0;
       }
       let counter = file.data.pseudocodeCounter;
-      console.debug(`Rendering tree: ${JSON.stringify(tree, null, 2)}`);
       let didInjectStyles = false;
 
       visit(tree, (node, ..._) => { return node.kind === 'pseudocode' }, (node, index, parent) => {
