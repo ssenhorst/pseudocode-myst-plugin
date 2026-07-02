@@ -38,6 +38,13 @@ Then use the directive as
 :::
 ```
 
+See [the example library](https://ssenhorst.github.io/pseudocode-myst-plugin/) for more examples.
+
+> [!WARNING]  
+> Latex builds of the directive will use the `algorithm` and `algpseudocode` packages.
+> The syntax for these packages unfortunately does not have a 1-1 correspondence to the pseudocode.js syntax.
+> Always manually check the latex output and adjust if needed.
+
 ## Manual build
 
 The `esbuild` tool takes `plugin.mjs` and its dependencies as inputs, and generates a `dist/plugin.mjs` bundle. This bundle can be directly loaded by MyST without requiring a build or install step.
