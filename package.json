@@ -10,7 +10,7 @@
     "esbuild": "0.25.4"
   },
   "scripts": {
-    "build": "esbuild plugin.mjs --bundle --outfile=dist/plugin.mjs --format=esm --platform=node --external:pseudocode"
+    "build": "esbuild plugin.mjs --bundle --outfile=dist/plugin.mjs --format=esm --platform=node"
   },
   "dependencies": {
     "pseudocode": "^2.4.1",
