@@ -6,11 +6,6 @@ import { visit } from 'unist-util-visit';
 const require = createRequire(import.meta.url);
 const pseudocode = require('pseudocode');
 
-function isTexBuildInvocation() {
-  // MyST CLI build targets are passed as top-level flags, e.g. --site, --pdf, --tex.
-  return process.argv.includes('--pdf') || process.argv.includes('--tex');
-}
-
 const PSEUDOCODE_CSS_FALLBACK = '';
 
 function readBundledAsset(specifier, fallback = '') {
@@ -284,8 +279,8 @@ const pseudocodeTransform = {
   name: 'pseudocode-render',
   doc: 'Transform pseudocode nodes into pre-rendered HTML blocks.',
   stage: 'document',
-  plugin: () => {
-    const renderAsRawTex = isTexBuildInvocation();
+  plugin: (_options, { outputFormat }) => {
+    const renderAsRawTex = outputFormat === 'tex';
     return (tree, file) => {
       if (!file.data.pseudocodeCounter) {
         file.data.pseudocodeCounter = 0;
